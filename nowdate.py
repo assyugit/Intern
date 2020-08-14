@@ -11,3 +11,4 @@ print tdate
 
 td_m = dt_now - tdate
 print td_m
+print td_m.days
