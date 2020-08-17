@@ -11,7 +11,6 @@ cnt = 1
 flag = 0
 
 while log_line:
- print log_line.strip()
  if cnt==1 or cnt==4:
   if "succeed" in log_line.strip():
    #正常終了 : 0
