@@ -3,13 +3,15 @@ import sys
 import os
 from datetime import datetime
 
-update_day = input()
+update_day = input("update day")
 dt_now = datetime.now()
-sys.stdin = file(raw_input())
+f_name = raw_input("update check file name(拡張子なし)")
+sys.stdin = file(f_name + ".log")
 log_line = sys.stdin.readline()
 cnt = 1
 flag = 0
 
+f=open("out_"+ f_name +".txt","w")
 while log_line:
  if cnt==1 or cnt==4:
   if "succeed" in log_line.strip():
@@ -45,8 +47,9 @@ while log_line:
   cnt=0
   if succes1==0 and succes2==0 and time_dif==0:
    #正常終了 : 0
-   print 0
+   f.write("0")
   else:
    #異常終了 : 1
-   print 1
+   f.write("1")
  cnt+=1
+f.close()
