@@ -1,0 +1,7 @@
+mondarchive succeed.
+正常終了 : 0
+2020-08-09-1506
+以上終了 : 1
+b14cbd9ff62d21a2a36281852cd9dec7 sco03.deego-net.jp-w2-diff-1.iso
+gdrive succeed.
+正常終了 : 0
