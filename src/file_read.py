@@ -3,8 +3,6 @@ import sys
 
 log_line = sys.stdin.readline()
 
-cnt=1
-
 while log_line:
  print log_line.strip()
  if "succeed" in log_line.strip():
