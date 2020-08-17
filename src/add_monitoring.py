@@ -11,7 +11,7 @@ log_line = sys.stdin.readline()
 cnt = 1
 flag = 0
 
-f=open("out_"+ f_name +".txt","w")
+f=open(f_name +".txt","w")
 while log_line:
  if cnt==1 or cnt==4:
   if "succeed" in log_line.strip():
