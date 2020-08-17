@@ -3,14 +3,15 @@ import sys
 import os
 from datetime import datetime
 
-update_day = input("update day >>>")
+update_day = input()
 dt_now = datetime.now()
-sys.stdin = file(raw_input("update check File name>>>"))
+sys.stdin = file(raw_input())
 log_line = sys.stdin.readline()
 cnt = 1
 flag = 0
 
 while log_line:
+ print log_line.strip()
  if cnt==1 or cnt==4:
   if "succeed" in log_line.strip():
    #正常終了 : 0
