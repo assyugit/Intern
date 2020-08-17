@@ -1,5 +1,6 @@
 # Intern
-インターンシップ課題 logの監視システム
+インターンシップ課題  
+logの監視システム
 # 使用言語
 Python2  
   import sys  
