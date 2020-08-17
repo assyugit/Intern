@@ -1,10 +1,10 @@
 #coding:UTF-8
 import sys
+import os
 from datetime import datetime
 
 dt_now = datetime.now()
 log_line = sys.stdin.readline()
-
 cnt = 1
 flag = 0
 
@@ -19,7 +19,7 @@ while log_line:
     succes2=0
     flag=0
   else:
-   #以上終了 : 1
+   #異常終了 : 1
    if flag==0:
     succes1=1
     flag=1
@@ -35,7 +35,7 @@ while log_line:
    #正常終了 : 0
    time_dif=0
   else:
-   #以上終了 : 1
+   #異常終了 : 1
    time_dif=1
 
  log_line=sys.stdin.readline()
