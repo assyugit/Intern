@@ -42,7 +42,9 @@ while log_line:
  if cnt ==4:
   cnt=0
   if succes1==0 and succes2==0 and time_dif==0:
-   print "正常終了 : 0"
+   #正常終了 : 0
+   print 0
   else:
-   print "異常終了 : 1"
+   #異常終了 : 1
+   print 1
  cnt+=1
