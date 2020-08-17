@@ -5,12 +5,13 @@ from datetime import datetime
 
 update_day = input("update day>>>")
 dt_now = datetime.now()
-f_name = raw_input("update check file name(拡張子なし)>>>")
-sys.stdin = file(f_name + ".log")
+f_name = raw_input("update check file name>>>")
+sys.stdin = file(f_name)
 log_line = sys.stdin.readline()
 cnt = 1
 flag = 0
 
+f_names = f_name[:f_name.find('.')]
 f=open(f_name +".txt","w")
 while log_line:
  if cnt==1 or cnt==4:
