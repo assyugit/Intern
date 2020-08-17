@@ -1,5 +1,4 @@
 #coding:UTF-8
-#import datetime
 from datetime import datetime
 
 dt_now = datetime.now()
