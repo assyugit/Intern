@@ -3,9 +3,9 @@ import sys
 import os
 from datetime import datetime
 
-update_day = input("update day")
+update_day = input("update day>>>")
 dt_now = datetime.now()
-f_name = raw_input("update check file name(拡張子なし)")
+f_name = raw_input("update check file name(拡張子なし)>>>")
 sys.stdin = file(f_name + ".log")
 log_line = sys.stdin.readline()
 cnt = 1
