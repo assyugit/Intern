@@ -43,7 +43,7 @@ try:
 
  if fresult is None:
   out = -4 #最終行が見つからない
- elif fresult == ftime:
+ elif fresult is not None and fresult == ftime:
   out = 0 #正常終了
  elif fresult == -1 and ftime == 0:
   out = -1 #バックアップが取れてない
