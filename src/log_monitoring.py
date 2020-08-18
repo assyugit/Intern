@@ -9,6 +9,7 @@ parser = argparse.ArgumentParser(description='log監視')
 parser.add_argument('-d','--day',help='更新期間閾値(日数指定)',default=7,type=int)
 parser.add_argument('-f','--fname',help='結果ファイルパス',required=True)
 parser.add_argument('-c','--check',help='logファイル最終行判定文字列',default='gdrive')
+parser.add_argument('-s','--search',help='検索対象文字列',default='succeed')
 
 args = parser.parse_args()
 
@@ -21,10 +22,12 @@ f = open("log_output.txt","w")
 try:
  while log_line:
   if args.check in log_line.strip():
-   if "succeed" in log_line.strip():
+   if args.search in log_line.strip():
     fresult = 0
+    break
    else:
     fresult = -1
+    break
   try:
    dt_p = datetime.strptime(log_line.strip(),'%Y-%m-%d-%H%M')
    t_dif = dt_now - dt_p
