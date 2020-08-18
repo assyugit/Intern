@@ -5,6 +5,16 @@ logの監視システム
 Python2  
   import sys  
   form datetime import datetime
+  import argparse
+# オプション・引数
+-f | --fname required=True  
+  結果ファイルパス  
+-d | --day type=int default=7  
+  更新期間期間閾値  
+-c | --check default=gdrive  
+  最終行判定文字列  
+-s | --search default=succeed  
+  検索対象文字列(成功表現文字列)
 # 使い方
 1. ソースプログラムの実行(Terminal上で"python ~.py > ~.txt")  
 2. 更新期間閾値と結果ファイルのパスを入力  
