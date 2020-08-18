@@ -4,9 +4,9 @@ import os
 import argparse
 from datetime import datetime
 
-parser = argparse.ArgumentParser(description='log監視')    # 2. パーサを作る
+parser = argparse.ArgumentParser(description='log監視')
 
-parser.add_argument('-d','--day',help='更新期間閾値',default=7,type=int)
+parser.add_argument('-d','--day',help='更新期間閾値(日数指定)',default=7,type=int)
 parser.add_argument('-f','--fname',help='結果ファイルパス',required=True)
 parser.add_argument('-c','--check',help='logファイル最終行判定文字列',default='gdrive')
 
@@ -16,34 +16,38 @@ dt_now = datetime.now()
 sys.stdin = file(args.fname)
 log_line = sys.stdin.readline()
 
+f = open("log_output.txt","w")
 
-while log_line:
- if args.check in log_line.strip():
-  if "succeed" in log_line.strip():
-   fresult = 0
-  else:
-   fresult = -1
- try:
-  dt_p = datetime.strptime(log_line.strip(),'%Y-%m-%d-%H%M')
-  t_dif = dt_now - dt_p
-  if t_dif.days < args.day:
-   ftime = 0
-  else:
-   ftime = -2
- except ValueError:
-  pass
+try:
+ while log_line:
+  if args.check in log_line.strip():
+   if "succeed" in log_line.strip():
+    fresult = 0
+   else:
+    fresult = -1
+  try:
+   dt_p = datetime.strptime(log_line.strip(),'%Y-%m-%d-%H%M')
+   t_dif = dt_now - dt_p
+   if t_dif.days < args.day:
+    ftime = 0
+   else:
+    ftime = -2
+  except ValueError:
+   pass
 
- log_line = sys.stdin.readline()
+  log_line = sys.stdin.readline()
+except Exception:
+ f.write("-9") #予期せぬエラー
+ f.close()
 
 if fresult == ftime:
- out = 0
+ out = 0 #正常終了
 elif fresult == -1 and ftime == 0:
- out = -1
+ out = -1 #バックアップが取れてない
 elif fresult == 0 and ftime == -2:
- out = -2
+ out = -2 #更新日時が古い
 else:
- out = -3
+ out = -3 #バックアップ、更新日時、ともに不可
 
-f = open("log_output.txt","w")
 f.write(str(out))
 f.close()
