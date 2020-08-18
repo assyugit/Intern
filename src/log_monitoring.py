@@ -42,8 +42,11 @@ try:
   log_line = sys.stdin.readline()
 
  if fresult is None:
-  out = -4 #最終行が見つからない
- elif fresult is not None and fresult == ftime:
+  if ftime is None:
+   out = -5 #ファイルが違うかも
+  else:
+   out = -4 #最終行が見つからない
+ elif fresult == 0 and ftime == 0:
   out = 0 #正常終了
  elif fresult == -1 and ftime == 0:
   out = -1 #バックアップが取れてない
