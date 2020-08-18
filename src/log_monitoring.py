@@ -45,5 +45,5 @@ else:
  out = -3
 
 f = open("log_output.txt","w")
-print out
+f.write(str(out))
 f.close()
