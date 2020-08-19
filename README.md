@@ -4,7 +4,7 @@ logの監視システム
 Python2.7.16  
 # 使用ライブラリ
 import sys  
-form datetime import datetime  
+from datetime import datetime  
 import argparse
 # オプション・引数
 -f | --fname required=True  
