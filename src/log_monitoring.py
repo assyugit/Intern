@@ -16,8 +16,6 @@ try:
  dt_now = datetime.now()
  sys.stdin = file(args.fname)
  log_line = sys.stdin.readline()
- fresult = None
- ftime = None
 
  f = open("log_output.txt","w")
 
@@ -41,18 +39,13 @@ try:
 
   log_line = sys.stdin.readline()
 
- if fresult is None:
-  if ftime is None:
-   out = -5 #ファイルが違うかも
-  else:
-   out = -4 #最終行が見つからない
- elif fresult == 0 and ftime == 0:
+ if fresult == 0 and ftime == 0:
   out = 0 #正常終了
  elif fresult == -1 and ftime == 0:
   out = -1 #バックアップが取れてない
  elif fresult == 0 and ftime == -2:
   out = -2 #更新日時が古い
- else:
+ elif fresult == -1 and ftime == -2:
   out = -3 #バックアップ、更新日時、ともに不可
 
  f.write(str(out))
