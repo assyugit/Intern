@@ -2,7 +2,7 @@
 インターンシップ課題  
 logの監視システム
 # 使用言語
-Python2  
+Python2.7.16  
   import sys  
   form datetime import datetime
   import argparse
