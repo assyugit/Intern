@@ -1,6 +1,5 @@
 #coding:UTF-8
 import sys
-import os
 from datetime import datetime
 
 update_day = input("update day>>>")
