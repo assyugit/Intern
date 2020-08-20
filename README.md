@@ -3,9 +3,9 @@ logの監視システム
 # 使用言語
 Python2.7.16  
 # 使用ライブラリ
-import sys  
-from datetime import datetime  
-import argparse
+sys  
+datetime  
+argparse
 # オプション・引数
 -f | --fname required=True  
   結果ファイルパス 必須引数  
