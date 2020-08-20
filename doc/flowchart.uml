@@ -22,7 +22,7 @@ note right
 end note
 
 :引数の解析;
-partition try1{
+partition try1
 :現在時刻の取得
 ファイル読み込み(1行ずつ);
 
