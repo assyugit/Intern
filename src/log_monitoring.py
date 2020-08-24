@@ -38,13 +38,13 @@ try:
   log_line = sys.stdin.readline()
 
  if fresult == 0 and ftime == 0:
-  #sys.exit(0)
+  sys.exit(0) #正常終了
  elif fresult == -1 and ftime == 0:
-  sys.exit(1)
+  sys.exit(1) #バックアップが取れていない
  elif fresult == 0 and ftime == -2:
-  sys.exit(2)
+  sys.exit(2) #更新日時が古い
  elif fresult == -1 and ftime == -2:
-  sys.exit(3)
+  sys.exit(3) # バックアップ、更新日時ともに不可
 
 except Exception:
- sys.exit(9)
+ sys.exit(9) #予期せぬエラー
