@@ -17,7 +17,7 @@ try:
  sys.stdin = file(args.fname)
  log_line = sys.stdin.readline()
 
- f = open("log_output.txt","w")
+# f = open("log_output.txt","w")
 
  while log_line:
   if args.check in log_line.strip():
@@ -40,18 +40,22 @@ try:
   log_line = sys.stdin.readline()
 
  if fresult == 0 and ftime == 0:
-  out = 0 #正常終了
+  #out = 0 #正常終了
+  #sys.exit(0)
  elif fresult == -1 and ftime == 0:
-  out = -1 #バックアップが取れてない
+  #out = -1 #バックアップが取れてない
+  sys.exit(1)
  elif fresult == 0 and ftime == -2:
-  out = -2 #更新日時が古い
+  #out = -2 #更新日時が古い
+  sys.exit(2)
  elif fresult == -1 and ftime == -2:
-  out = -3 #バックアップ、更新日時、ともに不可
+  #out = -3 #バックアップ、更新日時、ともに不可
+  sys.exit(3)
 
- f.write(str(out))
- f.close()
+# f.write(str(out))
+# f.close()
 
 except Exception:
- f.write("-9") #予期せぬエラー
- f.close()
- sys.exit()
+# f.write("-9") #予期せぬエラー
+# f.close()
+ sys.exit(9)
