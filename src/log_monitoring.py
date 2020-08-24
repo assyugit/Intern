@@ -21,10 +21,8 @@ try:
   if args.check in log_line.strip():
    if args.search in log_line.strip():
     fresult = 0
-    break
    else:
     fresult = -1
-    break
   try:
    dt_p = datetime.strptime(log_line.strip(),'%Y-%m-%d-%H%M')
    t_dif = dt_now - dt_p
